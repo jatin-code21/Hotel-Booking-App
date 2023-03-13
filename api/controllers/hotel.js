@@ -14,7 +14,7 @@ export const createHotel = async (req, res, next) => {
 export const updateHotel = async (req, res, next) => {
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(
-      req.params.id,
+      req.params.id, 
       { $set: req.body },
       { new: true }
     );
@@ -41,10 +41,11 @@ export const getHotel = async (req, res, next) => {
 };
 export const getHotels = async (req, res, next) => {
   const { min, max, ...others } = req.query;
+  // console.log(req.query);
   try {
     const hotels = await Hotel.find({
       ...others,
-      cheapestPrice: { $gt: min | 1, $lt: max || 999 },
+      cheapestPrice: { $gt: min | 1, $lt: max || 2000 },
     }).limit(req.query.limit);
     res.status(200).json(hotels);
   } catch (err) {
@@ -54,7 +55,7 @@ export const getHotels = async (req, res, next) => {
 export const countByCity = async (req, res, next) => {
   const cities = req.query.cities.split(",");
   try {
-    const list = await Promise.all(
+    const list = await Promise.all( // Promise.all() is used to execute multiple promises in parallel. ALso there will be multiple cities 
       cities.map((city) => {
         return Hotel.countDocuments({ city: city });
       })
@@ -79,7 +80,7 @@ export const countByType = async (req, res, next) => {
       { type: "villas", count: villaCount },
       { type: "cabins", count: cabinCount },
     ]);
-  } catch (err) {
+  } catch (err) { 
     next(err);
   }
 };

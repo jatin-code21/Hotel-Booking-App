@@ -1,10 +1,13 @@
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../hooks/useFetch"; // import the custom hook
 import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "/hotels/countByCity?cities=berlin,madrid,london"
+    "/hotels/countByCity?cities=Nashik,Akurdi,berlin" 
+    // here in above url you can start with http://localhost:8800/api/ too but as its being used every time it has been set as proxy in package.json file
   );
+
+  // console.log(data);
 
   return (
     <div className="featured">
@@ -14,24 +17,24 @@ const Featured = () => {
         <>
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
+              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/4d/4c/b3/photo2jpg.jpg?w=1200&h=-1&s=1"
               alt=""
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Berlin</h1>
+              <h1>Nashik</h1>
               <h2>{data[0]} properties</h2>
             </div>
           </div>
 
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
+              src="https://mediacdn.99acres.com/media1/15241/16/304836346O-1625547589912.jpg"
               alt=""
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Madrid</h1>
+              <h1>Akurdi</h1>
               <h2>{data[1]} properties</h2>
             </div>
           </div>
@@ -42,7 +45,7 @@ const Featured = () => {
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>London</h1>
+              <h1>Berlin</h1>
               <h2>{data[2]} properties</h2>
             </div>
           </div>

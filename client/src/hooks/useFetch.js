@@ -6,7 +6,7 @@ const useFetch = (url) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => { // whenever the url changes this useEffect will run
     const fetchData = async () => {
       setLoading(true);
       try {
