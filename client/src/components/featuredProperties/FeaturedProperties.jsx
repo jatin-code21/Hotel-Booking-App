@@ -8,12 +8,12 @@ const FeaturedProperties = () => {
     <div className="fp">
       {loading ? (
         "Loading"
-      ) : (
+      ) : ( 
         <>
           {data.map((item) => (
             <div className="fpItem" key={item._id}>
               <img
-                src={item.photos[0]}
+                src={item.photos[0]}yar
                 alt=""
                 className="fpImg"
               />
