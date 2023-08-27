@@ -1,7 +1,8 @@
 import { createContext, useEffect, useReducer } from "react";
+// useReducer can be used in place of useState when the state is more complex and involves multiple sub-values, or when the next state depends on the previous one.
 
 const INITIAL_STATE = {
-  user: JSON.parse(localStorage.getItem("user")) || null,
+  user: JSON.parse(localStorage.getItem("user")) || null, // user is set to null if no user is found in localStorage of the browser
   loading: false,
   error: null,
 };

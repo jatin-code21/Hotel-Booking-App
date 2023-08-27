@@ -19,6 +19,7 @@ import Reserve from "../../components/reserve/Reserve";
 
 const Hotel = () => {
   const location = useLocation();
+  // console.log(location)
   const id = location.pathname.split("/")[2];
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
@@ -105,7 +106,7 @@ const Hotel = () => {
               <span>{data.address}</span>
             </div>
             <span className="hotelDistance">
-              Excellent location – {data.distance}m from center
+              Excellent location - {data.distance}m from center
             </span>
             <span className="hotelPriceHighlight">
               Book a stay over ${data.cheapestPrice} at this property and get a
@@ -117,7 +118,7 @@ const Hotel = () => {
                   <img
                     onClick={() => handleOpen(i)}
                     src={photo}
-                    alt=""
+                    alt="Image not found"
                     className="hotelImg"
                   />
                 </div>

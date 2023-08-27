@@ -18,17 +18,17 @@ const List = () => {
   const [max, setMax] = useState(undefined);
 
   const { data, loading, error, reFetch } = useFetch(
-    `/hotels?city=${destination}&min=${min || 0 }&max=${max || 2000}`
+    `/hotels?city=${destination}&min=${min || 0}&max=${max || 2000}`
   );
 
   const handleClick = () => {
     reFetch();
-  };
+  }; 
 
   return (
     <div>
       <Navbar />
-      <Header type="list" />
+      <Header type="list" /> 
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listSearch">
